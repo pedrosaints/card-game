@@ -271,7 +271,6 @@ MonoBehaviour:
   maxVolume: 0.3
   audioSourceTimeDelay: 1
   deltaVolume: 0.05
-  introAudio: {fileID: 93445009}
 --- !u!1 &167747787
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +517,7 @@ GameObject:
   - component: {fileID: 611383491}
   - component: {fileID: 611383490}
   m_Layer: 5
-  m_Name: MenuScene
+  m_Name: FirstScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
