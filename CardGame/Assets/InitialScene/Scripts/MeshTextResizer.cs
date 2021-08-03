@@ -4,39 +4,31 @@ using TMPro;
 public class MeshTextResizer : MonoBehaviour
 {
     [SerializeField] private TMP_Text tmpText;
-    [SerializeField] private float maxFontSize;
-    [SerializeField] private float speedResize;
+    [SerializeField] private float minAlpha;
+    [SerializeField] private float speed;
 
-    private float minFontSize;
-    private bool isIncreasingSize = true;
+    private float maxAlpha;
+    private bool inMaxAlpha = true;
 
     public void Start()
     {
-        minFontSize = tmpText.fontSize;
+        maxAlpha = tmpText.alpha;
     }
     public void Update()
     {
-        Resize(minFontSize, maxFontSize, speedResize);
+        FlashingText(minAlpha, maxAlpha, speed);
     }
 
-    private void Resize(float minSize, float maxSize, float speedResize) {
-        // Resize modifica o tamanho da fonte do texto de um valor minimo até um valor máximo, e do valor máximo até o minimo
-        // em uma dada velocidade.
-
-        if (isIncreasingSize)
+    private void FlashingText(float minAlpha, float maxAlpha, float speedBlink)
+    {
+        if (inMaxAlpha)
         {
-            if (Mathf.Ceil(tmpText.fontSize + 0.5f) > maxSize)
-            {
-                isIncreasingSize = false;
-            }
-            tmpText.fontSize = Mathf.Lerp(tmpText.fontSize, maxSize, speedResize * Time.deltaTime);
+            if (Mathf.Ceil(tmpText.alpha - 0.01f) == minAlpha) inMaxAlpha = false;
+            tmpText.alpha = Mathf.Lerp(tmpText.alpha, minAlpha, speedBlink * Time.deltaTime);
         }
         else {
-            if (Mathf.Floor(tmpText.fontSize - 0.5f) < minSize)
-            {
-                isIncreasingSize = true;
-            }
-            tmpText.fontSize = Mathf.Lerp(tmpText.fontSize, minSize, speedResize * Time.deltaTime);
+            if (Mathf.Floor(tmpText.alpha + 0.01f) == maxAlpha) inMaxAlpha = true;
+            tmpText.alpha = Mathf.Lerp(tmpText.alpha, maxAlpha, speedBlink * Time.deltaTime);
         }
         
     }
