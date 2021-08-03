@@ -268,9 +268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e80ee1d1d4ba0e48a25b97adf1a7b97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVolume: 0.3
+  maxVolume: 0.2
   audioSourceTimeDelay: 1
-  deltaVolume: 0.05
+  deltaVolume: 0.02
 --- !u!1 &167747787
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 800545379}
   - component: {fileID: 800545381}
   - component: {fileID: 800545380}
+  - component: {fileID: 800545383}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -683,6 +684,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800545378}
   m_CullTransparentMesh: 1
+--- !u!114 &800545383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800545378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec5366e9d7850e4d9cd983ca0da887c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: HistoryScene
 --- !u!1 &1321924476
 GameObject:
   m_ObjectHideFlags: 0
