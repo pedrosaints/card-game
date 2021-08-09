@@ -381,6 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animScrollText: {fileID: 1400860856}
+  nextScene: ClassScene
 --- !u!1 &500689352
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,8 +582,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pular
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bb495e3f1b982274da6cd79c541c10ea, type: 2}
+  m_sharedMaterial: {fileID: 8868076196156815954, guid: bb495e3f1b982274da6cd79c541c10ea, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -864,8 +865,8 @@ MonoBehaviour:
     \xE9 outra hist\xF3ria, pequenino. \n\nVoc\xEA ainda tem uma longa vida pela
     frente\u2026\r\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bb495e3f1b982274da6cd79c541c10ea, type: 2}
+  m_sharedMaterial: {fileID: 8868076196156815954, guid: bb495e3f1b982274da6cd79c541c10ea, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -889,7 +890,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.1
+  m_fontSize: 20.65
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1

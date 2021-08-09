@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 896854129}
   - component: {fileID: 896854128}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Tribute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,6 +380,7 @@ MonoBehaviour:
   fadeAnim: {fileID: 920476019}
   animSpeed: 0.3
   delayTime: 2
+  nextScene: HistoryScene
 --- !u!1 &1017823534
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,8 +591,8 @@ MonoBehaviour:
   m_text: "Em honra \xE0s tribos brasileiras extintas que encontraram seu fim com
     a chegada do homem branco."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bb495e3f1b982274da6cd79c541c10ea, type: 2}
+  m_sharedMaterial: {fileID: 8868076196156815954, guid: bb495e3f1b982274da6cd79c541c10ea, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

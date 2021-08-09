@@ -350,8 +350,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Clique na tela para continuar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bb495e3f1b982274da6cd79c541c10ea, type: 2}
+  m_sharedMaterial: {fileID: 8868076196156815954, guid: bb495e3f1b982274da6cd79c541c10ea, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 611383491}
   - component: {fileID: 611383490}
   m_Layer: 5
-  m_Name: GameMenu
+  m_Name: StartGameMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -670,8 +670,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "T\xEDtulo do jogo"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: bb495e3f1b982274da6cd79c541c10ea, type: 2}
+  m_sharedMaterial: {fileID: 8868076196156815954, guid: bb495e3f1b982274da6cd79c541c10ea, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -833,6 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7798c6c03761344b08b0320bf38ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextScene: TributeScene
 --- !u!1 &2073676077
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,9 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class TributeSceneLoader : MonoBehaviour
+public class NextSceneLoader : MonoBehaviour
 {
     public Animator animScrollText;
+    public string nextScene = "ClassScene";
     private Button skipButton;
 
     public void Start()
@@ -21,14 +22,14 @@ public class TributeSceneLoader : MonoBehaviour
 
     public void LoadTributeSceneOnClick() 
     {
-        SceneManager.LoadScene("TributeScene");
+        SceneManager.LoadScene(nextScene);
     }
 
     public void LoadTributeSceneWhenAnimationEnds()
     {
         if (animScrollText.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
         {
-            SceneManager.LoadScene("TributeScene");
+            SceneManager.LoadScene(nextScene);
         }
     }
 

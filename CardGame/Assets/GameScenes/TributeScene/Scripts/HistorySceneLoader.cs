@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+public class HistorySceneLoader : MonoBehaviour
 {
     public Animator fadeAnim;
     public float animSpeed = 0.3f;
-    public float delayTime = 2.0f;
+    public float delayTime = 1.8f;
+    public string nextScene = "HistoryScene";
 
     public void Start()
     {
@@ -27,7 +28,7 @@ public class SceneLoader : MonoBehaviour
             yield return new WaitForSeconds(delayTime);
             fadeAnim.Play("FadeOutAnim");
             yield return new WaitForSeconds(1.0f / fadeAnim.speed);
-            SceneManager.LoadScene("ClassScene");
+            SceneManager.LoadScene(nextScene);
         }
     }
 }
