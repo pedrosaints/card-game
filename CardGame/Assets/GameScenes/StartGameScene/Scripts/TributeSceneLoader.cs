@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class TributeSceneLoader : MonoBehaviour
 {
-
     public string nextScene = "TributeScene";
 
     public void Update()
@@ -11,6 +10,7 @@ public class TributeSceneLoader : MonoBehaviour
         if (Input.GetMouseButton(0)) 
         {
             SceneManager.LoadScene(nextScene);
+            
         }
     }
 }

@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class NextSceneLoader : MonoBehaviour
+public class ClassChoiceSceneLoader : MonoBehaviour
 {
     public Animator animScrollText;
-    public string nextScene = "ClassScene";
+    public string nextScene = "ClassChoiceScene";
     private Button skipButton;
 
     public void Start()

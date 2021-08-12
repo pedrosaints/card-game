@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animScrollText: {fileID: 1400860856}
-  nextScene: ClassScene
+  nextScene: ClassChoiceScene
 --- !u!1 &500689352
 GameObject:
   m_ObjectHideFlags: 0
