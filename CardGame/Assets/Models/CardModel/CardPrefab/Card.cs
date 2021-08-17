@@ -7,6 +7,4 @@ public class Card : ScriptableObject
     public string cardName;
     public string cardDescription;
     public Sprite cardArt;
-    public Color cardType;
-
 }
