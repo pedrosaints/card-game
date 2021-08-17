@@ -853,7 +853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d7798c6c03761344b08b0320bf38ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioStartGame: {fileID: 93445009}
   nextScene: TributeScene
 --- !u!1 &2073676077
 GameObject:

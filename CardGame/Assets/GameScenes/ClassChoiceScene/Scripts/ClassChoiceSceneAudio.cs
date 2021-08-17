@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClassSceneAudio : MonoBehaviour
+public class ClassChoiceSceneAudio : MonoBehaviour
 {
     void Start()
     {
