@@ -14,7 +14,6 @@ public class CharacterSceneController : MonoBehaviour
 
     public void SelectedClass()
     {
-
         if (CharacterDataTransferor.charClass == null) return;
         charClassText.text = CharacterDataTransferor.charClass;
     }
