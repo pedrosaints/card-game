@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ClassChoiceSceneAudio : MonoBehaviour
+public class CharacterChoiceSceneAudio : MonoBehaviour
 {
     void Start()
     {

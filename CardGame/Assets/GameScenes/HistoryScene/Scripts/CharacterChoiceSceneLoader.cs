@@ -2,31 +2,35 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ClassChoiceSceneLoader : MonoBehaviour
+public class CharacterChoiceSceneLoader : MonoBehaviour
 {
     public Animator animScrollText;
-    public string nextScene = "ClassChoiceScene";
+    public string nextScene = "CharacterChoiceScene";
     private Button skipButton;
 
     public void Start()
     {
         animScrollText.speed = 1f;
         skipButton = GetComponent<Button>();
-        skipButton.onClick.AddListener(LoadTributeSceneOnClick);
+        skipButton.onClick.AddListener(LoadCharacterChoiceSceneOnClick);
     }
 
     public void Update()
     {
-        LoadTributeSceneWhenAnimationEnds();
+        LoadCharacterChoiceSceneWhenAnimationEnds();
     }
 
-    public void LoadTributeSceneOnClick() 
+    public void LoadCharacterChoiceSceneOnClick() 
     {
+        // Carrega a cena de escolha de personagem caso clique no botão. 
+
         SceneManager.LoadScene(nextScene);
     }
 
-    public void LoadTributeSceneWhenAnimationEnds()
+    public void LoadCharacterChoiceSceneWhenAnimationEnds()
     {
+        // Carrega a cena de escolha de personagem caso a narração da história acabe.
+
         if (animScrollText.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
         {
             SceneManager.LoadScene(nextScene);
