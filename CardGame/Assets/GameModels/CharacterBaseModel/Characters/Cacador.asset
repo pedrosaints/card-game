@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7371bb993dce6ad4b8056dac06ed232e, type: 3}
+  m_Name: Cacador
+  m_EditorClassIdentifier: 
+  charClass: "Ca\xE7ador"
+  charName: "Guyr\xE1"
+  charDescription: "Uma indigena jovem, com uma habilidade manual impec\xE1vel. Passou
+    pelo ritual da menina-mo\xE7a, mas n\xE3o deseja se casar. Ela quer trilhar seu
+    pr\xF3prio destino. Ela \xE9 uma ex\xEDmia arqueira e conhece todas as rotas
+    da floresta pr\xF3xima a sua aldeia. Seus conhecimentos sobre a fauna e a flora
+    podem ser determinantes para o fim dessa aventura."
+  charCombatStyle: "Combatente r\xE1pido, focado em causar dano rapidamente e impedir
+    repres\xE1lia inimiga."
+  charStr: 3
+  charDef: 2
+  charSpr: 2
+  charSpd: 5
+  charHp: 3
+  charArt: {fileID: 21300000, guid: 7d82bc16cbc9c6a478147ec26776b446, type: 3}

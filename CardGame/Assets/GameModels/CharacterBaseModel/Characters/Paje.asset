@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7371bb993dce6ad4b8056dac06ed232e, type: 3}
+  m_Name: Paje
+  m_EditorClassIdentifier: 
+  charClass: "Paj\xE9"
+  charName: Obykatu
+  charDescription: "Um jovem que ainda est\xE1 aprendendo a arte da pajelan\xE7a.
+    J\xE1 participou de diversos rituais, mas sempre como ouvinte. Sua falta de confian\xE7a
+    dever\xE1 ser superada para que ele possa prosseguir nessa jornada. Possui conhecimento
+    de alguns dos rituais antigos e tem vasto conhecimento sobre as ervas curativas."
+  charCombatStyle: "Vers\xE1til e estrat\xE9gico, focado em magias para todas as
+    ocasi\xF5es."
+  charStr: 1
+  charDef: 3
+  charSpr: 5
+  charSpd: 2
+  charHp: 4
+  charArt: {fileID: 21300000, guid: c1150a3aeebf01243abc9dbe160faf7f, type: 3}
