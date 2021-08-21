@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CharacterSceneController : MonoBehaviour
 {
     public Image charArt;
 
-    public Text charClassText;
-    public Text charNameText;
-    public Text charDescriptionText;
-    public Text charCombatStyleText;
+    public TMP_Text charClassText;
+    public TMP_Text charNameText;
+    public TMP_Text charDescriptionText;
+    public TMP_Text charCombatStyleText;
 
     public Slider strBar;
     public Slider defBar;
