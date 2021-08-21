@@ -5,7 +5,7 @@ public static class Loader
 {
     public static Scene LastScene;
     public static Scene CurrentScene;
-    
+  
     public enum Scene
     {
         StartGameScene,
