@@ -27,35 +27,68 @@ public class AudioManager : MonoBehaviour
 
         foreach (Sound s in sounds)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
+            GameObject audioSource = new GameObject(s.name);
+            audioSource.transform.parent = this.gameObject.transform;
+            s.source = audioSource.AddComponent<AudioSource>();
+
             s.source.clip = s.clip;
 
-            s.source.volume = s.volume;
+            s.source.volume = s.initVolume;
             s.source.loop = s.loop;
         }
     }
 
-    public void Play(string name)
+    public void Play(string soundName, bool isDelayed = false)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-        {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
-        }
+        if (GetSound(soundName, out var s)) return;
 
-        s.source.Play();
+        if (s.source.isPlaying) return;
+        if (isDelayed)
+        {
+            s.source.PlayDelayed(s.audioSourceTimeDelay);
+        }
+        else
+        {
+            s.source.Play();
+        }
     }
 
-    public void Stop(string name)
+    public void SetVolume(string soundName, float volume)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+        if (GetSound(soundName, out var s)) return;
+
+        s.source.volume = volume;
+    }
+
+    public void IncreaseVolume(string soundName)
+    {
+        // IcreaseVolume aumenta o volume do AudioSource um certo valor delta passado cada vez que é chamado,
+        // incrementando até um valor máximo passado.
+
+        if (GetSound(soundName, out var s)) return;
+
+        if (s.source.volume < s.maxVolume)
         {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
+            s.source.volume += s.deltaVolume * Time.deltaTime;
         }
+    }
+
+    public void Stop(string soundName)
+    {
+        if (GetSound(soundName, out var s)) return;
 
         s.source.Stop();
+    }
+
+    private bool GetSound(string soundName, out Sound s)
+    {
+        s = Array.Find(sounds, sound => sound.name == soundName);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + soundName + " not found!");
+            return true;
+        }
+
+        return false;
     }
 }

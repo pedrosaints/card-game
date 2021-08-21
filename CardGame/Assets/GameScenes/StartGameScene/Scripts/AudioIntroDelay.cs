@@ -22,8 +22,8 @@ public class AudioIntroDelay : MonoBehaviour
 
     private void IncreaseVolume(float maxVolume, float deltaVolume)
     {
-        // IcreaseVolume aumenta o volume do AudioSource um certo valor delta passado cada vez que È chamado,
-        // incrementando atÈ um valor m·ximo passado.
+        // IcreaseVolume aumenta o volume do AudioSource um certo valor delta passado cada vez que √© chamado,
+        // incrementando at√© um valor m√°ximo passado.
         if (introAudio.volume < maxVolume) {
             introAudio.volume += deltaVolume * Time.deltaTime;
         }

@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3616136333003906533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3616136333003906535}
+  - component: {fileID: 3616136333003906534}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3616136333003906535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616136333003906533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3616136333003906534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3616136333003906533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac59fa3657c3e3a4d8fce622b4fd5c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: TributeTheme
+    clip: {fileID: 8300000, guid: b35c74841f4250a4ca7e9b5f38c7b1c8, type: 3}
+    initVolume: 0.5
+    maxVolume: 0
+    audioSourceTimeDelay: 0
+    deltaVolume: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: NatureSounds
+    clip: {fileID: 8300000, guid: 39af9e4100fbb2641bc351c2f8b390da, type: 3}
+    initVolume: 0
+    maxVolume: 0.2
+    audioSourceTimeDelay: 1
+    deltaVolume: 0.02
+    loop: 1
+    source: {fileID: 0}
+  - name: Cascavel
+    clip: {fileID: 8300000, guid: 89848d2ae0277c741b757a551e2519d1, type: 3}
+    initVolume: 0.2
+    maxVolume: 0
+    audioSourceTimeDelay: 0
+    deltaVolume: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: FluteOpening
+    clip: {fileID: 8300000, guid: bbf961d1bdbcc69478959c5a80494983, type: 3}
+    initVolume: 0.2
+    maxVolume: 0
+    audioSourceTimeDelay: 0
+    deltaVolume: 0
+    loop: 0
+    source: {fileID: 0}

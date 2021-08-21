@@ -20,7 +20,7 @@ public class ResizableBar : MonoBehaviour
 
     public void ReplaceSprites()
     {
-        // ReplaceSprites substitui os sprites padrıes de ResizableBar pelos novos sprites passados no editor.
+        // ReplaceSprites substitui os sprites padr√µes de ResizableBar pelos novos sprites passados no editor.
 
         if (barImage != null)
         {
@@ -35,7 +35,7 @@ public class ResizableBar : MonoBehaviour
 
     public void ReplaceValues()
     {
-        // ReplaceValues redefine os novos valores de m·ximo e mÌnimo da barra com base no que foi inserido no editor.
+        // ReplaceValues redefine os novos valores de m√°ximo e m√≠nimo da barra com base no que foi inserido no editor.
 
         slider = GetComponent<Slider>();
         

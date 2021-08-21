@@ -9,8 +9,11 @@ public class Sound
     public string name;
 
     public AudioClip clip;
-
-    [Range(0f, 1f)] public float volume;
+    
+    [Range(0f, 1f)] public float initVolume;
+    [Range(0f, 1f)] public float maxVolume;
+    [Range(0f, 1f)] public float audioSourceTimeDelay;
+    [Range(0f, 1f)] public float deltaVolume;
 
     public bool loop;
 
