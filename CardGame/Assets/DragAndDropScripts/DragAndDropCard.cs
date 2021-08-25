@@ -4,12 +4,19 @@ using UnityEngine.EventSystems;
 public class DragAndDropCard : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
  
-    public RectTransform cardRectTransform;
-    public Canvas canvas;
-    public CanvasGroup cardCanvasGroup;
-    public Vector3 startPosition;
-    public string currentParentName;
+    private RectTransform cardRectTransform;
+    private Canvas canvas;
+    private CanvasGroup cardCanvasGroup;
+    private Vector3 startPosition;
+    private string currentParentName;
 
+
+    public void Start()
+    {
+        cardCanvasGroup = GetComponent<CanvasGroup>();
+        cardRectTransform = GetComponent<RectTransform>();
+        canvas = GetComponentInParent<Canvas>();
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
