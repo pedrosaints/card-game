@@ -424,7 +424,6 @@ MonoBehaviour:
   fadeAnim: {fileID: 920476019}
   animSpeed: 0.3
   delayTime: 2
-  nextScene: HistoryScene
 --- !u!1 &1017823534
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,8 +641,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4291029754
+  m_fontColor: {r: 0.98, g: 0.91891336, b: 0.7644, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
