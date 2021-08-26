@@ -11,8 +11,21 @@ public class CardRenderer : MonoBehaviour
     private Image cardArt;
 
 
-    public void Start()
+    public void Awake()
     {
+        // 
+        if (cardModel != null) {
+            GetFields();
+            Draw();
+        } else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void Initialize(Card cardModel)
+    {
+        this.cardModel = cardModel;
         GetFields();
         Draw();
     }
