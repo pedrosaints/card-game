@@ -318,6 +318,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5230237454816707524, guid: 7b499537ad2917b499f89da78edec860, type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.5235849
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230237454816707524, guid: 7b499537ad2917b499f89da78edec860, type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.5235849
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230237454816707524, guid: 7b499537ad2917b499f89da78edec860, type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230237454816707524, guid: 7b499537ad2917b499f89da78edec860, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1011675021}
@@ -567,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3413356153817303830, guid: fb7a1af279a7cf041a1a5c16c87410ba, type: 3}
       propertyPath: m_Name
-      value: BoardController
+      value: HandController
       objectReference: {fileID: 0}
     - target: {fileID: 3413356153817303831, guid: fb7a1af279a7cf041a1a5c16c87410ba, type: 3}
       propertyPath: cardContainer

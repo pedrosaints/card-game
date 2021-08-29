@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3413356153817303831}
   - component: {fileID: 3413356153817303829}
   m_Layer: 0
-  m_Name: BoardController
+  m_Name: HandController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputCardList:
   - {fileID: 11400000, guid: 04ac1916301203b4d9707c44b0ab603c, type: 2}
-  - {fileID: 11400000, guid: 04ac1916301203b4d9707c44b0ab603c, type: 2}
+  - {fileID: 11400000, guid: 0b91737f4ad771e429c319778abd84cf, type: 2}
   - {fileID: 11400000, guid: 04ac1916301203b4d9707c44b0ab603c, type: 2}
   - {fileID: 11400000, guid: 04ac1916301203b4d9707c44b0ab603c, type: 2}
   - {fileID: 11400000, guid: 04ac1916301203b4d9707c44b0ab603c, type: 2}

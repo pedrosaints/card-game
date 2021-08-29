@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PutCardsInHand : MonoBehaviour
 {
@@ -6,8 +7,9 @@ public class PutCardsInHand : MonoBehaviour
     public RectTransform cardContainer;
     public int maxCardsInHand = 4;
 
-
     public void GetCards() {
+        // Pega por padrão 4 cartas (pode ser alterado) e exibe na mão do jogador.
+
         foreach (Card card in CardList.Cards)
         {
             // Só é adicionada uma carta à mão do jogador se o número de cartas for menor que o definido.
