@@ -10,6 +10,7 @@ public enum BattleState
     Start,
     PlayerTurn,
     EnemyTurn,
+    EndTurn,
     Won,
     Lost
 }
@@ -19,7 +20,8 @@ public class BattleSystem : MonoBehaviour
 {
     private int turn;
 
-    public Button playerAttackButton;
+    public Button nextStepButton;
+    public Button endTurnButton;
 
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
@@ -39,7 +41,6 @@ public class BattleSystem : MonoBehaviour
 
     private IList<Card> playerCards;
     private IList<Card> enemyCards;
-
     private GameObject currentEnemyCard;
     private GameObject currentPlayerCard;
 
@@ -57,7 +58,8 @@ public class BattleSystem : MonoBehaviour
 
     public void Start()
     {
-        playerAttackButton.onClick.AddListener(GameTurn);
+        nextStepButton.onClick.AddListener(GameTurn);
+        endTurnButton.onClick.AddListener(() => state = BattleState.EndTurn);
         state = BattleState.Start;
         SetupBattle();
     }
@@ -118,22 +120,25 @@ public class BattleSystem : MonoBehaviour
     public bool PlayerHasCards() => playerCardContainer.childCount > 0;
 
 
-    public void ChooseFirstToAttack()
+    public BattleState ChooseFirstToAttack()
     {
         // Verifica quem vai ser o primeiro a atacar.
 
         if (enemy.GetComponent<Unit>().spd >= player.GetComponent<Unit>().spd)
+        {
             ChangeState(BattleState.EnemyTurn);
-        else
-            ChangeState(BattleState.EnemyTurn);
+            return BattleState.EnemyTurn;
+        }
+        ChangeState(BattleState.EnemyTurn);
+        return BattleState.EnemyTurn;
     }
 
     public void LoadEnemyCard()
     {
         // Carrega uma carta aleatória do inimigo no campo de batalha.
-
+        var cardIndex = Random.Range(0, enemyCards.Count);
         var clone = Instantiate(cardPrefab, enemyCardSlot.transform);
-        clone.GetComponent<CardRenderer>().Initialize(enemyCards[Random.Range(0, enemyCards.Count)]);
+        clone.GetComponent<CardRenderer>().Initialize(enemyCards[cardIndex]);
         Destroy(clone.GetComponent<DragAndDropCard>());
     }
 
@@ -157,6 +162,9 @@ public class BattleSystem : MonoBehaviour
             case BattleState.Lost:
                 turnStatusText.text = "<color=#FF0000>Derrota!</color>";
                 break;
+            case BattleState.EndTurn:
+                turnStatusText.text = "<color=#FF0000>Fim do turno!</color>";
+                break;
         }
     }
 
@@ -171,14 +179,13 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
-            ChangeState(BattleState.EnemyTurn);
+            ChangeState(BattleState.Lost);
         }
     }
 
     public void EnemyTurn()
     {
         LoadEnemyCard();
-        new WaitForSeconds(2);
         ChangeState(BattleState.PlayerTurn);
     }
 
@@ -187,15 +194,31 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.EnemyTurn)
         {
             EnemyTurn();
-            PlayerTurn();
         }
         else if(state == BattleState.PlayerTurn)
         {
             PlayerTurn();
-            EnemyTurn();
+        } else if(state == BattleState.EndTurn)
+        {
+            DestroyCards();
+            state = ChooseFirstToAttack();
         }
     }
 
+    public void DestroyCards()
+    {
+        if (playerCardSlot.childCount > 0 && state == BattleState.EndTurn)
+        {
+            currentPlayerCard = playerCardSlot.GetChild(0).gameObject;
+            Destroy(currentPlayerCard);
+        }
+
+        if (enemyCardSlot.childCount > 0 && state == BattleState.EndTurn)
+        {
+            currentEnemyCard = enemyCardSlot.GetChild(0).gameObject;
+            Destroy(currentEnemyCard);
+        }
+    }
     
     public int CalcDamage(Unit attacker, Unit defender) => (attacker.str - defender.def) >= 0 ? attacker.str - defender.def : 0;
 }
