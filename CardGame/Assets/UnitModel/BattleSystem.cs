@@ -8,6 +8,8 @@ using TMPro;
 public enum BattleState
 {
     Start,
+    PlayerAttack,
+    EnemyAttack,
     PlayerTurn,
     EnemyTurn,
     EndTurn,
@@ -18,7 +20,6 @@ public enum BattleState
 
 public class BattleSystem : MonoBehaviour
 {
-    private int turn;
 
     public Button nextStepButton;
     public Button endTurnButton;
@@ -35,6 +36,7 @@ public class BattleSystem : MonoBehaviour
     public Transform cardBattleArea;
 
     public BattleState state;
+    public BattleState whoAttacks;
 
     private GameObject player;
     private GameObject enemy;
@@ -67,6 +69,8 @@ public class BattleSystem : MonoBehaviour
 
     public void SetupBattle()
     {
+        // SetupBattle carrega o jogador, inimigo, cartas do jogador, carrega a barra de hp do jogador e do inimigo e
+        // verifica quem deve ser o primeiro a jogar, baseando-se no speed de cada um dos personagens e quem deve atacar primeiro.
 
         player = Instantiate(playerPrefab, playerArea);
         playerArea.GetComponent<Image>().sprite = player.GetComponent<Unit>().CharArt;
@@ -85,8 +89,9 @@ public class BattleSystem : MonoBehaviour
         enemyLifeBar.slider.value = enemy.GetComponent<Unit>().maxHp;
         enemyCards = enemy.GetComponent<Unit>().deck;
 
-        ChooseFirstToAttack();
-        
+        var firtAttack = ChooseFirstToAttack();
+        whoAttacks = firtAttack == BattleState.EnemyTurn ? BattleState.EnemyAttack : BattleState.PlayerAttack;
+         
         LoadPlayerCards();
         playerCardContainer.gameObject.AddComponent<CardAreaDrop>();
         playerCardContainer.GetComponent<CardAreaDrop>().maxChildrenNumber = maxCardsInHand;
@@ -98,9 +103,6 @@ public class BattleSystem : MonoBehaviour
         enemyCardSlot = GameObject.Find("EnemyCardSlot").GetComponent<RectTransform>();
 
         enemyCards = enemy.GetComponent<Unit>().deck;
-
-        turn = 1;
-
     }
 
     public void LoadPlayerCards()
@@ -122,7 +124,7 @@ public class BattleSystem : MonoBehaviour
 
     public BattleState ChooseFirstToAttack()
     {
-        // Verifica quem vai ser o primeiro a atacar.
+        // Verifica quem vai ser o primeiro a jogar.
 
         if (enemy.GetComponent<Unit>().spd >= player.GetComponent<Unit>().spd)
         {
@@ -170,6 +172,8 @@ public class BattleSystem : MonoBehaviour
 
     public void PlayerTurn()
     {
+        // Aqui é onde deve ficar a lógica de como o jogador irá fazer suas jogadas.
+
         if (PlayerHasCards())
         {
             if (PlayerDroppedCard())
@@ -179,18 +183,30 @@ public class BattleSystem : MonoBehaviour
         }
         else
         {
-            ChangeState(BattleState.Lost);
+            ChangeState(BattleState.EnemyTurn);
         }
     }
 
     public void EnemyTurn()
     {
+        // Aqui é onde deve ficar a lógica de como o inimigo irá fazer suas jogadas.
+
         LoadEnemyCard();
         ChangeState(BattleState.PlayerTurn);
     }
 
     public void GameTurn()
     {
+        // GameTurn é um método que por enquanto não está completo e está fazendo mais coisas do que deveria,
+        // é aqui onde fica o controle dos turnos.
+        // Ex: O primeiro a atacar é o jogador.
+        //     Jogador usa uma carta -> Agora o turno é do inimigo.  
+        //     Inimigo usa uma carta -> Agora é fim de turno.
+        //     Jogador finaliza o turno clicando no botão de finalizar turno.
+
+        // Por enquanto não existe quem ataca ou não.
+
+
         if (state == BattleState.EnemyTurn)
         {
             EnemyTurn();
@@ -207,6 +223,8 @@ public class BattleSystem : MonoBehaviour
 
     public void DestroyCards()
     {
+        // DestroyCards deleta as cartas do inimigo e do jogador que estiverem em campo.
+
         if (playerCardSlot.childCount > 0 && state == BattleState.EndTurn)
         {
             currentPlayerCard = playerCardSlot.GetChild(0).gameObject;
