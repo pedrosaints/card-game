@@ -9,12 +9,12 @@ public class ResizableBar : MonoBehaviour
     public int minValue = 0;
     public int maxValue = 5;
 
-    private Slider slider;
+    public Slider slider;
 
     public void Start()
     {
+        slider = GetComponent<Slider>();
         ReplaceSprites();
-        ReplaceValues();
     }
 
 
@@ -33,17 +33,6 @@ public class ResizableBar : MonoBehaviour
         }
     }
 
-    public void ReplaceValues()
-    {
-        // ReplaceValues redefine os novos valores de máximo e mínimo da barra com base no que foi inserido no editor.
+    public void ChangeColor(Color newColor) => transform.Find("Bar").GetComponent<Image>().color = newColor;
 
-        slider = GetComponent<Slider>();
-        
-        if(minValue >= 0 && maxValue >= 0)
-        {
-            slider.maxValue = maxValue;
-            slider.minValue = minValue;
-        }
-
-    }
 }

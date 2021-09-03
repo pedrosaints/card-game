@@ -3,15 +3,15 @@ using UnityEngine.EventSystems;
 
 public class DragAndDropCard : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
- 
-    private RectTransform cardRectTransform;
     private Canvas canvas;
+    private RectTransform cardRectTransform;
+
     private CanvasGroup cardCanvasGroup;
     private Vector3 startPosition;
     private string currentParentName;
 
 
-    public void Start()
+    public void Awake()
     {
         cardCanvasGroup = GetComponent<CanvasGroup>();
         cardRectTransform = GetComponent<RectTransform>();

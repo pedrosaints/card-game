@@ -13,4 +13,5 @@ public class CharacterBaseModel : ScriptableObject
     public int charSpd;
     public int charHp;
     public Sprite charArt;
+
 }

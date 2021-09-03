@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class CardAreaDrop : MonoBehaviour, IDropHandler
 {
-    public int maxChildrenNumber;
+    public int maxChildrenNumber = 2;
 
     public void Start()
     {
