@@ -7,14 +7,17 @@ using TMPro;
 
 public enum BattleState
 {
-    Start,
-    PlayerAttack,
-    EnemyAttack,
     PlayerTurn,
     EnemyTurn,
     EndTurn,
     Won,
     Lost
+}
+
+public enum AttackState
+{
+    PlayerAttack,
+    EnemyAttack
 }
 
 
@@ -35,8 +38,8 @@ public class BattleSystem : MonoBehaviour
 
     public Transform cardBattleArea;
 
-    public BattleState state;
-    public BattleState whoAttacks;
+    private BattleState battleState;
+    private AttackState whoAttacks;
 
     private GameObject player;
     private GameObject enemy;
@@ -61,8 +64,7 @@ public class BattleSystem : MonoBehaviour
     public void Start()
     {
         nextStepButton.onClick.AddListener(GameTurn);
-        endTurnButton.onClick.AddListener(() => state = BattleState.EndTurn);
-        state = BattleState.Start;
+        endTurnButton.onClick.AddListener(() => battleState = BattleState.EndTurn);
         SetupBattle();
     }
 
@@ -89,8 +91,8 @@ public class BattleSystem : MonoBehaviour
         enemyLifeBar.slider.value = enemy.GetComponent<Unit>().maxHp;
         enemyCards = enemy.GetComponent<Unit>().deck;
 
-        var firtAttack = ChooseFirstToAttack();
-        whoAttacks = firtAttack == BattleState.EnemyTurn ? BattleState.EnemyAttack : BattleState.PlayerAttack;
+        var firstAttack = ChooseFirstToAttack();
+        whoAttacks = firstAttack == BattleState.EnemyTurn ? AttackState.EnemyAttack : AttackState.PlayerAttack;
          
         LoadPlayerCards();
         playerCardContainer.gameObject.AddComponent<CardAreaDrop>();
@@ -121,7 +123,7 @@ public class BattleSystem : MonoBehaviour
     public bool PlayerDroppedCard() => playerCardSlot.childCount == 1;
     public bool PlayerHasCards() => playerCardContainer.childCount > 0;
 
-
+    public int CalcDamage(Unit attacker, Unit defender) => (attacker.str - defender.def) >= 0 ? attacker.str - defender.def : 0;
     public BattleState ChooseFirstToAttack()
     {
         // Verifica quem vai ser o primeiro a jogar.
@@ -148,9 +150,9 @@ public class BattleSystem : MonoBehaviour
     {
         // Modifica o status do jogo.
 
-        state = newState;
+        battleState = newState;
 
-        switch (state)
+        switch (battleState)
         {
             case BattleState.EnemyTurn:
                 turnStatusText.text = "Vez do <color=#FF0000>inimigo</color>";
@@ -173,7 +175,6 @@ public class BattleSystem : MonoBehaviour
     public void PlayerTurn()
     {
         // Aqui é onde deve ficar a lógica de como o jogador irá fazer suas jogadas.
-
         if (PlayerHasCards())
         {
             if (PlayerDroppedCard())
@@ -185,12 +186,12 @@ public class BattleSystem : MonoBehaviour
         {
             ChangeState(BattleState.EnemyTurn);
         }
+
     }
 
     public void EnemyTurn()
     {
         // Aqui é onde deve ficar a lógica de como o inimigo irá fazer suas jogadas.
-
         LoadEnemyCard();
         ChangeState(BattleState.PlayerTurn);
     }
@@ -207,17 +208,29 @@ public class BattleSystem : MonoBehaviour
         // Por enquanto não existe quem ataca ou não.
 
 
-        if (state == BattleState.EnemyTurn)
+        if (battleState == BattleState.EnemyTurn)
         {
             EnemyTurn();
         }
-        else if(state == BattleState.PlayerTurn)
+        else if(battleState == BattleState.PlayerTurn)
         {
             PlayerTurn();
-        } else if(state == BattleState.EndTurn)
+        } else if(battleState == BattleState.EndTurn)
         {
+            if(whoAttacks == AttackState.EnemyAttack)
+            {
+                playerLifeBar.slider.value -= CalcDamage(enemy.GetComponent<Unit>(), player.GetComponent<Unit>());
+                whoAttacks = AttackState.PlayerAttack;
+            }
+
+            if (whoAttacks == AttackState.PlayerAttack)
+            {
+                playerLifeBar.slider.value -= CalcDamage(player.GetComponent<Unit>(), enemy.GetComponent<Unit>());
+                whoAttacks = AttackState.EnemyAttack;
+            }
+
             DestroyCards();
-            state = ChooseFirstToAttack();
+            battleState = ChooseFirstToAttack();
         }
     }
 
@@ -225,20 +238,19 @@ public class BattleSystem : MonoBehaviour
     {
         // DestroyCards deleta as cartas do inimigo e do jogador que estiverem em campo.
 
-        if (playerCardSlot.childCount > 0 && state == BattleState.EndTurn)
+        if (playerCardSlot.childCount > 0 && battleState == BattleState.EndTurn)
         {
             currentPlayerCard = playerCardSlot.GetChild(0).gameObject;
             Destroy(currentPlayerCard);
         }
 
-        if (enemyCardSlot.childCount > 0 && state == BattleState.EndTurn)
+        if (enemyCardSlot.childCount > 0 && battleState == BattleState.EndTurn)
         {
             currentEnemyCard = enemyCardSlot.GetChild(0).gameObject;
             Destroy(currentEnemyCard);
         }
     }
-    
-    public int CalcDamage(Unit attacker, Unit defender) => (attacker.str - defender.def) >= 0 ? attacker.str - defender.def : 0;
+   
 }
 
 
