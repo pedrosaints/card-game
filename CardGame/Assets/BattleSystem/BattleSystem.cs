@@ -24,7 +24,6 @@ public enum AttackState
 public class BattleSystem : MonoBehaviour
 {
 
-    public Button nextStepButton;
     public Button endTurnButton;
 
     public GameObject playerPrefab;
@@ -63,8 +62,10 @@ public class BattleSystem : MonoBehaviour
 
     public void Start()
     {
-        nextStepButton.onClick.AddListener(GameTurn);
-        endTurnButton.onClick.AddListener(() => battleState = BattleState.EndTurn);
+        endTurnButton.onClick.AddListener(() => {
+            battleState = BattleState.EndTurn;
+            GameTurn();
+        });
         SetupBattle();
     }
 
@@ -204,8 +205,6 @@ public class BattleSystem : MonoBehaviour
         //     Jogador usa uma carta -> Agora o turno é do inimigo.  
         //     Inimigo usa uma carta -> Agora é fim de turno.
         //     Jogador finaliza o turno clicando no botão de finalizar turno.
-
-        // Por enquanto não existe quem ataca ou não.
 
 
         if (battleState == BattleState.EnemyTurn)
