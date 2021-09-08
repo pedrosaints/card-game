@@ -13,7 +13,8 @@ public static class Loader
         HistoryScene,
         CharacterChoiceScene,
         CharacterScene,
-        PrefabsScene
+        RouteScene,
+        BattleScene,
     }
 
     public static void Load(Scene scene)

@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/AllScenes/CharacterScene.unity
     guid: 85e293e543b56404996ec6e3343afcad
   - enabled: 1
+    path: Assets/AllScenes/RouteScene.unity
+    guid: 06892d488410b5e47879a2d553058c6f
+  - enabled: 1
     path: Assets/AllScenes/BattleScene.unity
     guid: d7671fcbd850ff5418e27387276f8ea8
   m_configObjects: {}

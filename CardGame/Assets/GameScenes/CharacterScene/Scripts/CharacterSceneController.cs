@@ -42,4 +42,11 @@ public class CharacterSceneController : MonoBehaviour
         hpBar.value = charModel.charHp;
     }
 
+    public void CharacterSelected()
+    {
+        // CharacterSelected muda para a próxima cena e mantém o personagem escolhido em CharacterDataTransferor.
+
+        Loader.Load(Loader.Scene.RouteScene);
+    }
+
 }

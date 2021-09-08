@@ -76,6 +76,16 @@ public class BattleSystem : MonoBehaviour
         // verifica quem deve ser o primeiro a jogar, baseando-se no speed de cada um dos personagens e quem deve atacar primeiro.
 
         player = Instantiate(playerPrefab, playerArea);
+
+        if(CharacterDataTransferor.charModel != null)
+        {
+            // Aqui é para testar a cena separadamente, caso ela seja usada em conjunto com a cena de escolha de personagem, será carregado o personagem escolhido, 
+            // caso contrário, será usado o padrão do prefab Player.
+
+            player.GetComponent<Unit>().character = CharacterDataTransferor.charModel;
+        }
+
+        
         playerArea.GetComponent<Image>().sprite = player.GetComponent<Unit>().CharArt;
         playerLifeBar.ChangeColor(Color.green);
         playerLifeBar.slider.minValue = 0;

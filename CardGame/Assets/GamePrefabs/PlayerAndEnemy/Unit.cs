@@ -37,4 +37,9 @@ public class Unit : MonoBehaviour
 
     public Sprite CharArt => character.charArt;
 
+    public void ToJson()
+    {
+
+    }
+
 }
